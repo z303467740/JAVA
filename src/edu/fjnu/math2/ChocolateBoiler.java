@@ -7,7 +7,6 @@ public class ChocolateBoiler {
 		test.fill();
 		test.boil();
 		test.drain();
-
 	}
 
 	private boolean empty;
