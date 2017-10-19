@@ -14,5 +14,6 @@ public class PizzaStore {
 		SimplePizzaFactory testFactory = new SimplePizzaFactory();
 		Pizza pizza = testFactory.SimplePizzaFactory(type);
 		pizza = this.orderPizza(pizza);
+
 	}
 }
