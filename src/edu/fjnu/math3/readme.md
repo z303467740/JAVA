@@ -352,6 +352,6 @@ public class SJFSeize {
 
 注：以上三种算法大致都差不多，主要描述下抢占算法，这里设每做一次循环，为过一秒，等待队列从到达队列中获得一个Task实体（增加了一个属性RemainingTime，表示还剩下几秒这个进程完成），之后在寻找他们中间寻找RemainingTime最短的作业执行（RemainingTime-1），重复这个过程，当RemainingTime=0视为这个作业完成。
 
-  [1]: ./images/1.png "1"
-  [2]: ./images/2.png "2"
-  [3]: ./images/3.png "3"
+  [1]: ./1.png "1"
+  [2]: ./2.png "2"
+  [3]: ./3.png "3"
