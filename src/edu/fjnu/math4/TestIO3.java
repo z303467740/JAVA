@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
-public class testIO3 {
+public class TestIO3 {
 	public static void main(String[] args) {
 		try {
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 
-public class testIO1 {
+public class TestIO1 {
 	public static void main(String[] args) throws IOException {
 		File srcFile = new File("src\\edu\\fjnu\\math4\\src.txt");
 		File destFile = new File("src\\edu\\fjnu\\math4\\dest.txt");

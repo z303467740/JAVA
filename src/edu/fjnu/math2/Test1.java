@@ -1,6 +1,6 @@
 package edu.fjnu.math2;
 
-public class test1 {
+public class Test1 {
 
 	private int num1;
 	public int num2;
