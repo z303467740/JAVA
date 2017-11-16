@@ -354,8 +354,4 @@ public class SJFSeize {
 
   [1]: ./1.png "1"
   [2]: ./2.png "2"
-<<<<<<< HEAD
   [3]: ./3.png "3"
-=======
-  [3]: ./3.png "3"
->>>>>>> branch 'master' of https://github.com/z303467740/JAVA.git
