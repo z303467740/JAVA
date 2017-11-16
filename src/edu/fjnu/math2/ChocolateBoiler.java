@@ -3,10 +3,6 @@ package edu.fjnu.math2;
 public class ChocolateBoiler {
 
 	public static void main(String[] args) {
-		ChocolateBoiler test = new ChocolateBoiler();
-		test.fill();
-		test.boil();
-		test.drain();
 
 	}
 
@@ -28,34 +24,34 @@ public class ChocolateBoiler {
 
 	public void fill() {
 		if (this.isEmpty()) {
-			System.out.println("Ìî³äÖĞ¡­¡­Ìî³äÍê³É£¡");
+			System.out.println("å¡«å……ä¸­â€¦â€¦å¡«å……å®Œæˆï¼");
 			this.empty = false;
 		} else {
-			System.out.println("Ö»ÓĞ¿ÕµÄ¹øÂ¯²ÅÄÜÌî³äÇÉ¿ËÁ¦ºÍÅ£ÄÌ");
+			System.out.println("åªæœ‰ç©ºçš„é”…ç‚‰æ‰èƒ½å¡«å……å·§å…‹åŠ›å’Œç‰›å¥¶");
 		}
 	}
 
 	public void boil() {
 		if (!this.isEmpty()) {
 			if (this.isBoiled()) {
-				System.out.println("Öó¿ªÖĞ¡­¡­ÖóºÃÁË£¡");
+				System.out.println("ç…®å¼€ä¸­â€¦â€¦ç…®å¥½äº†ï¼");
 			} else {
-				System.out.println("ÒÑ±»Öó¹ı");
+				System.out.println("å·²è¢«ç…®è¿‡");
 			}
 
 		} else {
-			System.out.println("¹øÂ¯ÄÚÃ»Ë®£¡");
+			System.out.println("é”…ç‚‰å†…æ²¡æ°´ï¼");
 		}
 	}
 
 	public void drain() {
 		if (this.isEmpty()) {
-			System.out.println("¹øÂ¯¿Õ£¡");
+			System.out.println("é”…ç‚‰å†…æ²¡æ°´ï¼");
 		} else {
 			if (this.isBoiled()) {
-				System.out.println("µ¹³öÖĞ¡­¡­µ¹³öÍê³É£¡");
+				System.out.println("å€’å‡ºä¸­â€¦â€¦å€’å‡ºå®Œæˆï¼");
 			} else {
-				System.out.println("Î´ÉÕ¿ª£¡");
+				System.out.println("æœªçƒ§å¼€ï¼");
 			}
 		}
 

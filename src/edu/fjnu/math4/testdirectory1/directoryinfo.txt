@@ -1,0 +1,5 @@
+directoryname:testdirectory  lastchangedate:Thu Nov 09 20:19:46 CST 2017
+file:dest.txt  lastchangedate:Thu Nov 09 16:40:05 CST 2017  filesize:12
+file:src.txt  lastchangedate:Thu Nov 09 16:40:05 CST 2017  filesize:12
+file:testIO1.java  lastchangedate:Thu Nov 09 16:45:25 CST 2017  filesize:912
+file:testIO2.java  lastchangedate:Wed Nov 15 22:21:49 CST 2017  filesize:1377

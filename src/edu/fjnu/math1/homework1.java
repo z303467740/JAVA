@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class homework1 {
 	public static void main(String[] args) {
 		homework1 text = new homework1();
-		text.IsRuanNian();
+		text.IsLeapYear();
 		text.ToGradeScore();
 		text.Print(4);
 		text.TheNumber();
 	}
 
-	public void IsRuanNian() {
-		System.out.println("ÅÐ¶ÏÊÇ·ñÎªÈòÄêÊäÈë0ÍË³ö;");
+	public void IsLeapYear() {
+		System.out.println("åˆ¤æ–­æ˜¯å¦ä¸ºé—°å¹´è¾“å…¥0é€€å‡º;");
 		while (true) {
 			Scanner sc = new Scanner(System.in);
 			int year = sc.nextInt();
@@ -38,20 +38,20 @@ public class homework1 {
 
 	public void ToGradeScore() {
 
-		System.out.println("ÇëÊäÈë0-100µÄÕûÐÍÊý¾Ý ÊäÈëÆäËû¼´ÍË³ö");
+		System.out.println("è¯·è¾“å…¥0-100çš„æ•´åž‹æ•°æ® è¾“å…¥å…¶ä»–å³é€€å‡º");
 		Scanner sc = new Scanner(System.in);
 		int score = sc.nextInt();
 		while (score >= 0 || score <= 100) {
 			if (score >= 0 && score < 60) {
-				System.out.println("²»¼°¸ñ£º" + score);
+				System.out.println("ä¸åŠæ ¼ï¼š" + score);
 			} else if (score >= 60 && score < 69) {
-				System.out.println("¼°¸ñ£º" + score);
+				System.out.println("åŠæ ¼ï¼š" + score);
 			} else if (score >= 70 && score < 79) {
-				System.out.println("ÖÐ£º" + score);
+				System.out.println("ä¸­ï¼š" + score);
 			} else if (score >= 80 && score < 89) {
-				System.out.println("Á¼£º" + score);
+				System.out.println("è‰¯ï¼š" + score);
 			} else if (score >= 90 && score <= 100) {
-				System.out.println("ÓÅ£º" + score);
+				System.out.println("ä¼˜ï¼š" + score);
 			} else {
 				break;
 			}
@@ -86,12 +86,11 @@ public class homework1 {
 	}
 
 	public void TheNumber() {
-		System.out.println("Ë®ÏÉ»¨ÊýÓÐ");
+		System.out.println("æ°´ä»™èŠ±æ•°æœ‰");
 		for (int i = 1; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
 				for (int k = 0; k < 10; k++) {
-					if (i * 100 + j * 10 + k == i * i * i + j * j * j + k * k
-							* k) {
+					if (i * 100 + j * 10 + k == i * i * i + j * j * j + k * k * k) {
 						System.out.println(i * 100 + j * 10 + k);
 					}
 				}
