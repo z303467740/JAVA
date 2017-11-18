@@ -30,9 +30,10 @@ public class TestIO3 {
 			while ((b = orir.read()) != -1) {
 				copyw.write(b);
 			}
+			long sysDate2 = System.currentTimeMillis();
 			orir.close();
 			copyw.close();
-			long sysDate2 = System.currentTimeMillis();
+
 			System.out.println("不带缓冲的字符流：" + (sysDate2 - sysDate1) + "毫秒");
 
 			orir = new FileReader(oriFile);
