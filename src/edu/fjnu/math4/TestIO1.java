@@ -33,5 +33,11 @@ public class TestIO1 {
 		}
 		srcr.close();
 		destw.close();
+		Reader destr = new FileReader(destFile);
+		while ((b = destr.read()) != -1) {
+			System.out.print((char) b);
+		}
+		System.out.println();
+		destr.close();
 	}
 }

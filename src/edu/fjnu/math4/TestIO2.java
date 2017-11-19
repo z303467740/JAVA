@@ -11,7 +11,7 @@ public class TestIO2 {
 
 	public static void main(String[] args) throws IOException {
 		String Path = "src\\edu\\fjnu\\math4";
-		File directoryinfo = new File("src\\edu\\fjnu\\math4\\testdirectory\\directoryinfo.txt");
+		File directoryinfo = new File("src\\edu\\fjnu\\math4\\directoryinfo.txt");
 		if (!directoryinfo.exists()) {
 			directoryinfo.createNewFile();
 		}

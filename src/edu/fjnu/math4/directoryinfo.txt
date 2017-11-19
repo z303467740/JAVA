@@ -1,0 +1,19 @@
+directoryname:testdirectory1  lastchangedate:Sun Nov 19 21:48:59 CST 2017
+directoryname:testdirectory2  lastchangedate:Thu Nov 16 16:14:12 CST 2017
+directoryname:testdirectory3  lastchangedate:Thu Nov 16 16:14:12 CST 2017
+file:1.png  lastchangedate:Sun Nov 19 21:41:58 CST 2017  filesize:40831
+file:Student.java  lastchangedate:Sun Nov 19 21:31:37 CST 2017  filesize:737
+file:Student.obj  lastchangedate:Sun Nov 19 21:18:06 CST 2017  filesize:0
+file:StudentComparator.java  lastchangedate:Sun Nov 19 21:15:05 CST 2017  filesize:290
+file:TestIO1.java  lastchangedate:Sun Nov 19 21:41:13 CST 2017  filesize:1076
+file:TestIO2.java  lastchangedate:Sun Nov 19 22:05:21 CST 2017  filesize:1330
+file:TestIO3.java  lastchangedate:Thu Nov 16 17:14:18 CST 2017  filesize:1679
+file:TestIO4.java  lastchangedate:Sun Nov 19 21:26:39 CST 2017  filesize:2625
+file:copfile.txt  lastchangedate:Thu Nov 16 17:14:25 CST 2017  filesize:2778409
+file:dest.txt  lastchangedate:Sun Nov 19 21:41:19 CST 2017  filesize:7
+file:directoryinfo.txt  lastchangedate:Sun Nov 19 22:05:22 CST 2017  filesize:0
+file:list.txt  lastchangedate:Wed Nov 15 22:25:51 CST 2017  filesize:1093
+file:orifile.txt  lastchangedate:Thu Nov 16 16:53:08 CST 2017  filesize:2778409
+file:readme.md  lastchangedate:Sun Nov 19 21:46:38 CST 2017  filesize:5941
+file:src.txt  lastchangedate:Sun Nov 19 21:41:19 CST 2017  filesize:7
+file:student.bin  lastchangedate:Wed Nov 15 22:32:18 CST 2017  filesize:0
