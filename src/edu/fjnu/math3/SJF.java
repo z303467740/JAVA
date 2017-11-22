@@ -85,7 +85,7 @@ public class SJF {
 		FileReader fr = null;
 		BufferedReader br = null;
 		try {
-			fr = new FileReader("D:\\code\\javatest\\JAVAWOK\\src\\edu\\fjnu\\math3\\file.txt");
+			fr = new FileReader("src\\edu\\fjnu\\math3\\file.txt");
 			br = new BufferedReader(fr);
 			String line = "";
 			String[] infos = null;

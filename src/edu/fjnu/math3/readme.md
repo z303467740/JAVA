@@ -118,7 +118,13 @@ public class FCFS {
 
 }
 ```
+#### 实验截图
+单进程
+
 ![enter description here][1]
+双进程
+
+![enter description here][2]
 
 
 ## 模拟实现SJF（短作业优先）
@@ -181,7 +187,7 @@ public class SJFSeize {
 	private void work() {
 		// TODO Auto-generated method stub
 		now.setRemainingTime(now.getRemainingTime() - 1);
-		sumTime++;![enter description here][2]
+		sumTime++;
 		if (now.getRemainingTime() == 0) {
 			now.setFinishingTime(sumTime);
 			now.setTurnAroundTime(now.getFinishingTime() - now.getArrivalTime());
@@ -233,8 +239,14 @@ public class SJFSeize {
 
 }
 ```
-![enter description here][2]
+#### 实验截图
+单进程
 
+![enter description here][3]
+
+双进程
+
+![enter description here][4]
 ## 模拟实现SJF（抢占短作业优先）
 SJF算法首先调度已到达的任务中，服务时间最短的任务，这里不要求实现任务的抢占。
 按照FCFS算法的要求实现SJF算法，同样要求处理两种情况：
@@ -348,10 +360,21 @@ public class SJFSeize {
 }
 
 ```
-![enter description here][3]
+#### 实验截图
+单进程
+
+![enter description here][5]
+
+双进程
+
+![enter description here][6]
 
 注：以上三种算法大致都差不多，主要描述下抢占算法，这里设每做一次循环，为过一秒，等待队列从到达队列中获得一个Task实体（增加了一个属性RemainingTime，表示还剩下几秒这个进程完成），之后在寻找他们中间寻找RemainingTime最短的作业执行（RemainingTime-1），重复这个过程，当RemainingTime=0视为这个作业完成。
+
 
   [1]: ./1.png "1"
   [2]: ./2.png "2"
   [3]: ./3.png "3"
+  [4]: ./4.png "4"
+  [5]: ./5.png "5"
+  [6]: ./6.png "6"

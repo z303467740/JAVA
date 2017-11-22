@@ -9,7 +9,7 @@ import java.util.Random;
 public class OperationFile {
 
 	public static void inputFiles() {
-		File dest = new File("D:\\code\\javatest\\JAVAWOK\\src\\edu\\fjnu\\math3\\file.txt");
+		File dest = new File("src\\edu\\fjnu\\math3\\file.txt");
 		Writer er = null;
 		try {
 			er = new FileWriter(dest);

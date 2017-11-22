@@ -11,7 +11,7 @@ public class SJFSeize {
 	static LinkedList<Task> TaskQueue = null;
 	static private LinkedList<Task> waitQueue = new LinkedList<Task>();
 	private int sumTime;
-	private Task now; // 当前文件
+	private Task now;
 	private String name;
 
 	public int getWaitQueueSize() {
@@ -79,7 +79,7 @@ public class SJFSeize {
 		FileReader fr = null;
 		BufferedReader br = null;
 		try {
-			fr = new FileReader("D:\\code\\javatest\\JAVAWOK\\src\\edu\\fjnu\\math3\\file.txt");
+			fr = new FileReader("src\\edu\\fjnu\\math3\\file.txt");
 			br = new BufferedReader(fr);
 			String line = "";
 			String[] infos = null;
