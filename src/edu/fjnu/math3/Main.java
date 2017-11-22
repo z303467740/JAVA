@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//OperationFile.inputFiles();
+		// OperationFile.inputFiles();
 		FCFS test1 = new FCFS("Test1");
 		FCFS test2 = new FCFS("Test2");
 
