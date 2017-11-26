@@ -11,7 +11,7 @@ public class SJF {
 
 	static LinkedList<Task> TaskQueue = null;
 	static private LinkedList<Task> waitQueue = new LinkedList<Task>();
-	private int sumTime;
+	static private int sumTime = -1;
 	private boolean isFree;
 	private Task now;
 	private String name;
@@ -39,6 +39,7 @@ public class SJF {
 	}
 
 	public static void addWaitQueue() {
+		sumTime++;
 		if (TaskQueue.size() != 0) {
 			waitQueue.offer(TaskQueue.poll());
 		}
@@ -68,9 +69,10 @@ public class SJF {
 
 	private void work() {
 		// TODO Auto-generated method stub
-		sumTime++;
+
 		if (sumTime == now.getFinishingTime()) {
 			isFree = true;
+			begin();
 		}
 
 	}
@@ -91,7 +93,7 @@ public class SJF {
 			String[] infos = null;
 			while ((line = br.readLine()) != null) {
 				Task temp = new Task();
-				infos = line.split(" ");
+				infos = line.split("	");
 				temp.setTaskID(Integer.parseInt(infos[0]));
 				temp.setArrivalTime(Integer.parseInt(infos[1]));
 				temp.setServiceTime(Integer.parseInt(infos[2]));

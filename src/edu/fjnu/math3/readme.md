@@ -25,7 +25,7 @@ weightTurnAround //带权周转时间=周转时间/服务时间
 public class FCFS {
 	static LinkedList<Task> TaskQueue = null;
 	static private LinkedList<Task> waitQueue = new LinkedList<Task>();
-	private int sumTime;
+	static private int sumTime = -1;
 	private boolean isFree;
 	private Task now;
 	private String name;
@@ -43,6 +43,7 @@ public class FCFS {
 	}
 
 	static public void addWaitQueue() {
+		sumTime++;
 		if (TaskQueue.size() != 0) {
 			waitQueue.offer(TaskQueue.poll());
 		}
@@ -72,9 +73,10 @@ public class FCFS {
 
 	private void work() {
 		// TODO Auto-generated method stub
-		sumTime++;
+
 		if (sumTime == now.getFinishingTime()) {
 			isFree = true;
+			begin();
 		}
 	}
 
@@ -88,13 +90,14 @@ public class FCFS {
 		FileReader fr = null;
 		BufferedReader br = null;
 		try {
-			fr = new FileReader("D:\\code\\javatest\\JAVAWOK\\src\\edu\\fjnu\\math3\\file.txt");
+			fr = new FileReader("src\\edu\\fjnu\\math3\\file.txt");
 			br = new BufferedReader(fr);
 			String line = "";
 			String[] infos = null;
+
 			while ((line = br.readLine()) != null) {
 				Task temp = new Task();
-				infos = line.split(" ");
+				infos = line.split("	");
 				temp.setTaskID(Integer.parseInt(infos[0]));
 				temp.setArrivalTime(Integer.parseInt(infos[1]));
 				temp.setServiceTime(Integer.parseInt(infos[2]));
@@ -115,7 +118,6 @@ public class FCFS {
 		return queue;
 
 	}
-
 }
 ```
 #### 实验截图
@@ -136,11 +138,13 @@ SJF算法首先调度已到达的任务中，服务时间最短的任务，这�
 
 #### 部分代码
 ```java
-public class SJFSeize {
+public class SJF {
+
 	static LinkedList<Task> TaskQueue = null;
 	static private LinkedList<Task> waitQueue = new LinkedList<Task>();
-	private int sumTime;
-	private Task now; // 当前文件
+	static private int sumTime = -1;
+	private boolean isFree;
+	private Task now;
 	private String name;
 
 	public int getWaitQueueSize() {
@@ -152,54 +156,60 @@ public class SJFSeize {
 		@Override
 		public int compare(Task o1, Task o2) {
 			// TODO Auto-generated method stub
-			return (o1.getRemainingTime() - o2.getRemainingTime());
+			return (o1.getServiceTime() - o2.getServiceTime());
 		}
 
 	}
 
-	public SJFSeize(String name) {
-		if (SJFSeize.TaskQueue == null) {
+	public SJF(String name) {
+		if (SJF.TaskQueue == null) {
 			loadTaskQueue();
 		}
 		this.name = name;
+		isFree = true;
 	}
 
-	static public void addWaitQueue() {
+	public static void addWaitQueue() {
+		sumTime++;
 		if (TaskQueue.size() != 0) {
 			waitQueue.offer(TaskQueue.poll());
 		}
 	}
 
 	public void startUp() {
-		begin();
+
+		if (isFree) {
+			begin();
+		} else {
+			work();
+		}
 	}
 
 	private void begin() {
 		Collections.sort(waitQueue, new TaskComparator());
 		if (waitQueue.size() != 0) {
-			this.now = SJFSeize.waitQueue.peek();
-			if (now.getServiceTime() == now.getRemainingTime())
-				now.setStartingTime(sumTime);
-			work();
+			this.now = SJF.waitQueue.poll();
+			isFree = false;
+			now.setStartingTime(sumTime);
+			now.setFinishingTime(now.getStartingTime() + now.getServiceTime());
+			now.setTurnAroundTime(now.getFinishingTime() - now.getArrivalTime());
+			now.setWeightTurnAround(now.getTurnAroundTime() * 1.0 / now.getServiceTime());
+			System.out.println(this.name + ":" + now);
 		}
 	}
 
 	private void work() {
 		// TODO Auto-generated method stub
-		now.setRemainingTime(now.getRemainingTime() - 1);
-		sumTime++;
-		if (now.getRemainingTime() == 0) {
-			now.setFinishingTime(sumTime);
-			now.setTurnAroundTime(now.getFinishingTime() - now.getArrivalTime());
-			now.setWeightTurnAround(now.getTurnAroundTime() * 1.0 / now.getServiceTime());
-			System.out.println(this.name + ":" + now);
-			waitQueue.remove();
+
+		if (sumTime == now.getFinishingTime()) {
+			isFree = true;
+			begin();
 		}
 
 	}
 
 	private void loadTaskQueue() {
-		SJFSeize.TaskQueue = readFile();
+		SJF.TaskQueue = readFile();
 	}
 
 	private LinkedList<Task> readFile() {
@@ -208,13 +218,13 @@ public class SJFSeize {
 		FileReader fr = null;
 		BufferedReader br = null;
 		try {
-			fr = new FileReader("D:\\code\\javatest\\JAVAWOK\\src\\edu\\fjnu\\math3\\file.txt");
+			fr = new FileReader("src\\edu\\fjnu\\math3\\file.txt");
 			br = new BufferedReader(fr);
 			String line = "";
 			String[] infos = null;
 			while ((line = br.readLine()) != null) {
 				Task temp = new Task();
-				infos = line.split(" ");
+				infos = line.split("	");
 				temp.setTaskID(Integer.parseInt(infos[0]));
 				temp.setArrivalTime(Integer.parseInt(infos[1]));
 				temp.setServiceTime(Integer.parseInt(infos[2]));
@@ -247,134 +257,11 @@ public class SJFSeize {
 双进程
 
 ![enter description here][4]
-## 模拟实现SJF（抢占短作业优先）
-SJF算法首先调度已到达的任务中，服务时间最短的任务，这里不要求实现任务的抢占。
-按照FCFS算法的要求实现SJF算法，同样要求处理两种情况：
-当只有一个处理队列时的情况
-当有两个处理队列时的情况
 
-#### 部分代码
-```java
 
-public class SJFSeize {
-	static LinkedList<Task> TaskQueue = null;
-	static private LinkedList<Task> waitQueue = new LinkedList<Task>();
-	private int sumTime;
-	private Task now; // 当前文件
-	private String name;
-
-	public int getWaitQueueSize() {
-		return waitQueue.size();
-	}
-
-	public class TaskComparator implements Comparator<Task> {
-
-		@Override
-		public int compare(Task o1, Task o2) {
-			// TODO Auto-generated method stub
-			return (o1.getRemainingTime() - o2.getRemainingTime());
-		}
-
-	}
-
-	public SJFSeize(String name) {
-		if (SJFSeize.TaskQueue == null) {
-			loadTaskQueue();
-		}
-		this.name = name;
-	}
-
-	static public void addWaitQueue() {
-		if (TaskQueue.size() != 0) {
-			waitQueue.offer(TaskQueue.poll());
-		}
-	}
-
-	public void startUp() {
-		begin();
-	}
-
-	private void begin() {
-		Collections.sort(waitQueue, new TaskComparator());
-		if (waitQueue.size() != 0) {
-			this.now = SJFSeize.waitQueue.peek();
-			if (now.getServiceTime() == now.getRemainingTime())
-				now.setStartingTime(sumTime);
-			work();
-		}
-	}
-
-	private void work() {
-		// TODO Auto-generated method stub
-		now.setRemainingTime(now.getRemainingTime() - 1);
-		sumTime++;
-		if (now.getRemainingTime() == 0) {
-			now.setFinishingTime(sumTime);
-			now.setTurnAroundTime(now.getFinishingTime() - now.getArrivalTime());
-			now.setWeightTurnAround(now.getTurnAroundTime() * 1.0 / now.getServiceTime());
-			System.out.println(this.name + ":" + now);
-			waitQueue.remove();
-		}
-
-	}
-
-	private void loadTaskQueue() {
-		SJFSeize.TaskQueue = readFile();
-	}
-
-	private LinkedList<Task> readFile() {
-		System.out.println("TeskBegin");
-		LinkedList<Task> queue = new LinkedList<Task>();
-		FileReader fr = null;
-		BufferedReader br = null;
-		try {
-			fr = new FileReader("D:\\code\\javatest\\JAVAWOK\\src\\edu\\fjnu\\math3\\file.txt");
-			br = new BufferedReader(fr);
-			String line = "";
-			String[] infos = null;
-			while ((line = br.readLine()) != null) {
-				Task temp = new Task();
-				infos = line.split(" ");
-				temp.setTaskID(Integer.parseInt(infos[0]));
-				temp.setArrivalTime(Integer.parseInt(infos[1]));
-				temp.setServiceTime(Integer.parseInt(infos[2]));
-				temp.setRemainingTime(Integer.parseInt(infos[2]));
-				queue.offer(temp);
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		} finally {
-			try {
-				br.close();
-				fr.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
-		return queue;
-
-	}
-
-}
-
-```
-#### 实验截图
-单进程
-
-![enter description here][5]
-
-双进程
-
-![enter description here][6]
-
-注：以上三种算法大致都差不多，主要描述下抢占算法，这里设每做一次循环，为过一秒，等待队列从到达队列中获得一个Task实体（增加了一个属性RemainingTime，表示还剩下几秒这个进程完成），之后在寻找他们中间寻找RemainingTime最短的作业执行（RemainingTime-1），重复这个过程，当RemainingTime=0视为这个作业完成。
 
 
   [1]: ./1.png "1"
   [2]: ./2.png "2"
   [3]: ./3.png "3"
   [4]: ./4.png "4"
-  [5]: ./5.png "5"
-  [6]: ./6.png "6"
