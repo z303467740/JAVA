@@ -3,14 +3,17 @@ package edu.fjnu.math2;
 public class ChocolateBoiler {
 
 	public static void main(String[] args) {
-
+		ChocolateBoiler chocolateBoiler = new ChocolateBoiler();
+		chocolateBoiler.fill();
+		chocolateBoiler.boil();
+		chocolateBoiler.drain();
 	}
 
 	private boolean empty;
 	private boolean boiled;
 	private static ChocolateBoiler chocolateBoiler;
 
-	private ChocolateBoiler() {
+	public ChocolateBoiler() {
 		empty = true;
 		boiled = false;
 	}
@@ -34,9 +37,10 @@ public class ChocolateBoiler {
 	public void boil() {
 		if (!this.isEmpty()) {
 			if (this.isBoiled()) {
-				System.out.println("煮开中……煮好了！");
-			} else {
 				System.out.println("已被煮过");
+			} else {
+				System.out.println("煮开中……煮好了！");
+				boiled = true;
 			}
 
 		} else {
