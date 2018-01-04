@@ -289,4 +289,9 @@ public class MyClient extends JFrame { // 创建类继承JFrame类
 ![enter description here][1]
 
 
+### 总结
+
+在做最后一步隔行改变颜色的时候遇到了很多困难，因为JTextArea不支持隔行改变颜色 所以我使用了JTextPane实现了颜色的改变，总的来说，这次实验让我学习了许多新的知识，让我视野扩展了许多，在克服困难的过程中我也学到了许多新知识。
+
+
   [1]: ./1.png "1"
