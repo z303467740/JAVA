@@ -20,6 +20,7 @@ public class ChocolateBoiler {
 	public ChocolateBoiler() {
 		empty = true;
 		boiled = false;
+
 	}
 
 	public static synchronized ChocolateBoiler getInstance() {
